@@ -21,6 +21,10 @@ void vector_push(vector *cvector, int toPush) {
     cvector->arr[(cvector->size)-1] = toPush; // insert the value
 }
 
+void vector_set(vector *cvector, int toPush, int n) {
+    cvector->arr[n] = toPush; // insert the value
+}
+
 void vector_insert(vector *cvector, int toPush, int n) {
     size_t nsize = (cvector->size+1) ; // increase number of elements by one
     for (int i = (int)cvector->size - 1; i > 0; i--) {
