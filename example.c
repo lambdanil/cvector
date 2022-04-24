@@ -9,7 +9,7 @@ int main() {
     vector_push(&test, 52);
     vector_push(&test, 46);
     vector_push(&test, 12);
-    vector_insert(&test, 0, 15); // Insert value before cell 0
+    vector_insert(&test, 15, 0); // Insert value 15 before cell 0
     vector_delete_at(&test, 1); // Delete value at position 1 (in this case deletes 14)
     printf("%d", vector_at(&test, 1)); // Print value at position 2
     printf("%d", (int)test.size); // Print number of cells
