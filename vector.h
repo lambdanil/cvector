@@ -21,6 +21,15 @@ void vector_push(vector *cvector, int toPush) {
     cvector->arr[(cvector->size)-1] = toPush; // insert the value
 }
 
+void vector_insert(vector *cvector, int n, int toPush) {
+    size_t nsize = (cvector->size+1) ; // increase number of elements by one
+    for (int i = (int)cvector->size - 1; i > 0; i--) {
+        cvector->arr[i] = cvector->arr[i-1]; // move array values
+    }
+    vector_resize(cvector, nsize);
+    cvector->arr[0] = toPush; // insert the value
+}
+
 void vector_free(vector *cvector) {
     free(cvector->arr);
 }
@@ -30,8 +39,8 @@ void vector_delete_last(vector *cvector) {
 }
 
 void vector_delete_at(vector *cvector, int n) { // delete specific value
-    for (int i = n; n < (int)cvector->size - 1; n++) {
-        cvector->arr[n] = cvector->arr[n+1]; // move array values
+    for (int i = n; i < (int)cvector->size - 1; i++) {
+        cvector->arr[i] = cvector->arr[i+1]; // move array values
     }
     vector_resize(cvector, cvector->size - 1); // resize array
 }
