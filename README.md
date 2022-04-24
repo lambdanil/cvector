@@ -6,6 +6,8 @@ Small dynamic array (vector) implementation in C
 # Usage example
 
 ```c
+#include <stdio.h>
+#include <stdlib.h>
 #include "vector.h" // include the header
 
 int main() {
