@@ -14,5 +14,5 @@ int main() {
     test.at[1] = 23; // Set cell 1 to 23
     printf("%d", test.at[2]); // Print value at cell 2
     printf("%d", (int)test.size); // Print number of cells
-    vector_free(&test); // Deallocate atay memory
+    vector_free(&test); // Deallocate array memory
 }
