@@ -30,7 +30,7 @@ void vector_delete_last(vector *cvector) {
 }
 
 void vector_delete_at(vector *cvector, int n) { // delete specific value
-    for (int i = n; n < (int)cvector->size - 2; n++) {
+    for (int i = n; n < (int)cvector->size - 1; n++) {
         cvector->arr[n] = cvector->arr[n+1]; // move array values
     }
     vector_resize(cvector, cvector->size - 1); // resize array

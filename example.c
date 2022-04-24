@@ -9,8 +9,8 @@ int main() {
     vector_push(&test, 52);
     vector_push(&test, 46);
     vector_push(&test, 12);
-    vector_delete_at(&test, 3); // Delete value at 3rd position (in this case deletes 46)
-    printf("%d", vector_at(&test, 3)); // Print value at 3rd position
+    vector_delete_at(&test, 1); // Delete value at position 1 (in this case deletes 52)
+    printf("%d", vector_at(&test, 2)); // Print value at position 2
     printf("%d", (int)test.size); // Print number of cells
     vector_free(&test); // Deallocate array memory
 }
