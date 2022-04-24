@@ -2,40 +2,36 @@
 
 typedef struct Vector {
     size_t size; // number of elements in vector
-    int* arr; // dynamic array
+    int* at; // dynamic array
 } vector;
 
 void vector_init(vector *cvector, size_t n) {
-    cvector->arr = (int*)malloc(n * sizeof(int)); // allocate memory
+    cvector->at = (int*)malloc(n * sizeof(int)); // allocate memory
     cvector->size = n;
 }
 
 void vector_resize(vector *cvector, size_t n) {
-    cvector->arr = (int*)realloc(cvector->arr, n * sizeof(int)); // reallocate memory
+    cvector->at = (int*)realloc(cvector->at, n * sizeof(int)); // reallocate memory
     cvector->size = n; 
 }
 
 void vector_push(vector *cvector, int toPush) {
     size_t nsize = (cvector->size+1) ; // increase number of elements by one
     vector_resize(cvector, nsize);
-    cvector->arr[(cvector->size)-1] = toPush; // insert the value
-}
-
-void vector_set(vector *cvector, int toPush, int n) {
-    cvector->arr[n] = toPush; // insert the value
+    cvector->at[(cvector->size)-1] = toPush; // insert the value
 }
 
 void vector_insert(vector *cvector, int toPush, int n) {
     size_t nsize = (cvector->size+1) ; // increase number of elements by one
     for (int i = (int)cvector->size - 1; i > 0; i--) {
-        cvector->arr[i] = cvector->arr[i-1]; // move array values
+        cvector->at[i] = cvector->at[i-1]; // move array values
     }
     vector_resize(cvector, nsize);
-    cvector->arr[0] = toPush; // insert the value
+    cvector->at[0] = toPush; // insert the value
 }
 
 void vector_free(vector *cvector) {
-    free(cvector->arr);
+    free(cvector->at);
 }
 
 void vector_delete_last(vector *cvector) {
@@ -44,11 +40,7 @@ void vector_delete_last(vector *cvector) {
 
 void vector_delete_at(vector *cvector, int n) { // delete specific value
     for (int i = n; i < (int)cvector->size - 1; i++) {
-        cvector->arr[i] = cvector->arr[i+1]; // move array values
+        cvector->at[i] = cvector->at[i+1]; // move array values
     }
     vector_resize(cvector, cvector->size - 1); // resize array
-}
-
-int vector_at(vector *cvector, int n) {
-    return cvector->arr[n]; // return position
 }
