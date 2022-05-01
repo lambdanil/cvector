@@ -23,11 +23,11 @@ void vector_push(vector *cvector, int toPush) {
 
 void vector_insert(vector *cvector, int toPush, int n) {
     size_t nsize = (cvector->size+1) ; // increase number of elements by one
-    for (int i = (int)cvector->size - 1; i > 0; i--) {
-        cvector->at[i] = cvector->at[i-1]; // move array values
-    }
     vector_resize(cvector, nsize);
-    cvector->at[0] = toPush; // insert the value
+    for (int i = (int)cvector->size - 1; i > n; i--) {
+        cvector->at[i] = cvector->at[i-1]; // move array values
+    } 
+    cvector->at[n] = toPush; // insert the value
 }
 
 void vector_free(vector *cvector) {
